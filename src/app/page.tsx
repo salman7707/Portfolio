@@ -2,7 +2,7 @@ import HeroSection from "@/components/shared/pageSection/homePageSection/HeroSec
 
 export default function Home() {
   return (
-    <div className="h-screen w-full mx-auto flex items-center justify-center">
+    <div className="w-full max-w-[1350px] m-auto">
       <HeroSection />
     </div>
   );
