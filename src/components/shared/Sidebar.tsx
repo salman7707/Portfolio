@@ -14,13 +14,13 @@ export default function Sidebar() {
   }>({ id: null, open: false, value: "" });
   return (
     <div
-      className={`bg-transparent  fixed top-0 left-0 px-4 py-2 ${
+      className={`bg-transparent fixed top-0 left-0 px-4 py-2 ${
         sidebarOpen ? "w-10" : "w-[285px] bg-blur"
       }  h-screen z-50 `}
     >
       <div className="flex flex-col gap-y-6 items-center justify-between w-full ">
         <div className="flex items-center justify-between w-full">
-          {!sidebarOpen ? <div className="text-3xl">Logo</div> : ""}
+          {!sidebarOpen ? <div className="text-3xl text-white">Logo</div> : ""}
           <div
             onClick={() => setSidebarOpen(!sidebarOpen)}
             className={`hover:bg-[#27272A] md:bg-transparent bg-[#27272A] px-2 py-2 mt-2 rounded-md`}
@@ -43,7 +43,7 @@ export default function Sidebar() {
                 data.id === 3 && "mt-5"
               } justify-center w-full rounded-md hover:bg-[#1F2937] ${
                 sidebarOpen ? "ml-[25px] pl-2 pr-7 hidden md:flex " : "px-2"
-              } py-2`}
+              } py-2 text-white`}
             >
               <div className={`${!sidebarOpen ? "w-[14%]" : "w-full"}`}>
                 <data.ICON className="text-xl m-0 mb-[2px]" />
@@ -64,9 +64,9 @@ export default function Sidebar() {
           ))}
         </div>
         <div
-          className={`md:flex hidden items-center justify-start w-full`}
+          className={` ${ sidebarOpen ? "md:flex hidden":"flex" } items-center justify-start w-full`}
         >
-          <div className=" hover:bg-[#27272A]  bg-transparent px-2 py-2 rounded-md">
+          <div className=" hover:bg-[#27272A] text-white  bg-transparent px-2 py-2 rounded-md">
             <BsFillMoonStarsFill />
           </div>
         </div>

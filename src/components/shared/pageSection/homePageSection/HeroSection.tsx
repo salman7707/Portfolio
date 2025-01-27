@@ -9,7 +9,7 @@ import Button from "@/components/template/button/Button";
 
 export default function HeroSection() {
   return (
-    <div className="h-[100vh] relative bg-[#09090B] flex items-center justify-center py-6 overflow-x-hidden">
+    <div className="h-[100vh] relative bg-[#09090B] flex lg:items-center md:items-start justify-center py-6 overflow-x-hidden">
       {/* Background Circles */}
       <div className="absolute inset-0 flex items-center justify-center h-full w-full z-0">
         <motion.div
@@ -32,7 +32,7 @@ export default function HeroSection() {
         ></motion.div>
       </div>
       {/* Front on the background circles */}
-      <div className="relative border-[#27272A] border h-auto xl:w-[85%] z-10 lg:w-[89%] md:w-[85%] w-[90%] rounded-xl m-auto overflow-hidden">
+      <div className="relative border-[#27272A] border h-auto xl:w-[85%] z-10 lg:w-[89%] md:w-[85%] w-[90%] rounded-xl md:mx-auto m-auto lg:m-auto overflow-hidden">
         {HeroSectionData.map((data) => (
           <div
             key={data.id}
@@ -109,7 +109,7 @@ export default function HeroSection() {
                     <Button>Download Resume</Button>
                   </div>
                   <div>
-                    <button className="border-[#27272A] border rounded-md px-4 py-1 bg-[#09090B] flex items-center justify-center gap-2 group text-base">
+                    <button className="border-[#27272A] border rounded-md px-4 py-1 bg-[#09090B] flex items-center justify-center gap-2 group text-base text-white">
                       More About Me
                       <LuArrowRight className="text-lg group-hover:translate-x-1 font-light transition-all duration-150 ease-linear" />
                     </button>
