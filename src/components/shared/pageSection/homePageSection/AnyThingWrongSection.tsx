@@ -2,33 +2,22 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  CodeIcon,
-  BugIcon,
-  MailIcon,
-  PencilIcon,
-  GitForkIcon,
-} from "lucide-react";
 import Link from "next/link";
-
-interface ReportProps {
-  report?: string;
-  dir?: string;
-  ext?: string;
-}
+import { AnyThingWorngLinks } from "@/constants";
+import { IconType } from "react-icons/lib";
 
 interface LinkItemProps {
   href: string;
   text: string;
-  icon: React.ReactNode;
+  icon: IconType;
 }
 
-const LinkItem = ({ href, text, icon }: LinkItemProps) => {
+const LinkItem = ({ href, text, icon: Icon }: LinkItemProps) => {
   return (
     <li>
       <Button asChild variant="ghost" className="w-full justify-start">
         <Link href={href} className="flex items-center gap-2">
-          {icon}
+          <Icon className="w-4 h-4" />
           <span>{text}</span>
         </Link>
       </Button>
@@ -36,41 +25,9 @@ const LinkItem = ({ href, text, icon }: LinkItemProps) => {
   );
 };
 
-export default function AnyThingWrongSection({
-  report = "page",
-  dir = "app",
-  ext = ".tsx",
-}: ReportProps) {
-  const links = [
-    {
-      href: `https://github.com/abass-dev/abassdev.com/blob/dev/${dir}/${report}${ext}`,
-      text: "Code source of this page",
-      icon: <CodeIcon className="h-4 w-4" />,
-    },
-    {
-      href: "https://github.com/abass-dev/abassdev.com/issues/new?",
-      text: "Report issue on GitHub",
-      icon: <BugIcon className="h-4 w-4" />,
-    },
-    {
-      href: `mailto:abass@abassdev.com?subject=Report issues https://github.com/abass-dev/abassdev.com/blob/dev/${dir}/${report}${ext}&body=Hi Abass Dev, I found some issues with this component... [${report}]`,
-      text: "Report issue by email",
-      icon: <MailIcon className="h-4 w-4" />,
-    },
-    {
-      href: `https://github.com/abass-dev/abassdev.com/edit/dev/${dir}/${report}${ext}`,
-      text: "Edit this page on GitHub",
-      icon: <PencilIcon className="h-4 w-4" />,
-    },
-    {
-      href: "https://github.com/abass-dev/abassdev.com/fork",
-      text: "Fork this repository",
-      icon: <GitForkIcon className="h-4 w-4" />,
-    },
-  ];
-
+export default function AnyThingWrongSection() {
   return (
-    <div className="container mx-auto px-8 md:px-10 lg:px-20 pb-20 xl:px-32">
+    <div className="max-w-[1350px] mx-auto px-4 md:px-16 lg:px-20 pb-20 xl:px-[122px]">
       <Card className="bg-background text-foreground">
         <CardHeader>
           <CardTitle className="text-3xl md:text-4xl font-edu-nsw text-primary">
@@ -79,8 +36,13 @@ export default function AnyThingWrongSection({
         </CardHeader>
         <CardContent>
           <ul className="space-y-2">
-            {links.map((link, index) => (
-              <LinkItem key={index} {...link} />
+            {AnyThingWorngLinks.map((link, index) => (
+              <LinkItem
+                key={index}
+                icon={link.icon}
+                text={link.text}
+                href={link.href}
+              />
             ))}
           </ul>
         </CardContent>

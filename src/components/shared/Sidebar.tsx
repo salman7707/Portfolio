@@ -23,7 +23,7 @@ export default function Sidebar() {
           {!sidebarOpen ? <div className="text-3xl text-white">Logo</div> : ""}
           <div
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className={`hover:bg-[#27272A] md:bg-transparent bg-[#27272A] px-2 py-2 mt-2 rounded-md`}
+            className={`hover:bg-[#27272A] md:bg-transparent bg-[#27272A] px-2 py-2 mt-2 rounded-[8px]`}
           >
             <GiHamburgerMenu className="text-[#B4B4B5] text-base" />
           </div>
@@ -41,7 +41,7 @@ export default function Sidebar() {
               key={data.id}
               className={`flex items-center ${
                 data.id === 3 && "mt-5"
-              } justify-center w-full rounded-md hover:bg-[#1F2937] ${
+              } justify-center w-full rounded-[5px] hover:bg-[#1F2937] ${
                 sidebarOpen ? "ml-[25px] pl-2 pr-7 hidden md:flex " : "px-2"
               } py-2 text-white`}
             >
@@ -64,9 +64,11 @@ export default function Sidebar() {
           ))}
         </div>
         <div
-          className={` ${ sidebarOpen ? "md:flex hidden":"flex" } items-center justify-start w-full`}
+          className={` ${
+            sidebarOpen ? "md:flex hidden" : "flex"
+          } items-center justify-start w-full`}
         >
-          <div className=" hover:bg-[#27272A] text-white  bg-transparent px-2 py-2 rounded-md">
+          <div className=" hover:bg-[#27272A] text-white  bg-transparent px-2 py-2 rounded-[6px]">
             <BsFillMoonStarsFill />
           </div>
         </div>

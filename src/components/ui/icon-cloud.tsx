@@ -44,12 +44,18 @@ export const cloudProps: Omit<ICloud, "children"> = {
 const useIcons = (slugs: string[]) => {
   const [icons, setIcons] = React.useState<Icons | undefined>(undefined);
   React.useEffect(() => {
-    fetchSimpleIcons({ slugs }).then(setIcons);
+    const fetchData = async () => {
+      try {
+        const iconsData = await fetchSimpleIcons({ slugs });
+        setIcons(iconsData);
+      } catch (error) {
+        console.error("Error fetching icons:", error);
+      }
+    };
+    fetchData();
   }, [slugs]);
 
   if (icons) {
-    const bgHex = "#000"; // Background color
-
     return Object.values(icons.simpleIcons).map((icon) =>
       renderSimpleIcon({
         icon,
@@ -69,7 +75,11 @@ const useIcons = (slugs: string[]) => {
 
 const DynamicIconCloud = ({ slugs }: { slugs: string[] }) => {
   const icons = useIcons(slugs);
-  return <Cloud {...cloudProps}>{icons}</Cloud>;
+  return (
+    <Cloud {...cloudProps}>
+      {icons}
+    </Cloud>
+  );
 };
 
 export default DynamicIconCloud;
