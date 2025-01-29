@@ -82,7 +82,8 @@ export default {
 			}
 		},
 		boxShadow: {
-			'custom-shadow': 'rgb(255, 255, 255) 0px 0px 20px 10px'
+			'custom-shadow': 'rgb(255, 255, 255) 0px 0px 20px 10px',
+			'custom-shadow2': 'black 0px 0px 40px -20px'
 		}
 	},
 	plugins: [require("tailwindcss-animate")],

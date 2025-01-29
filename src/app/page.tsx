@@ -1,5 +1,4 @@
 import AnyThingWrongSection from "@/components/shared/pageSection/homePageSection/AnyThingWrongSection";
-import FormAndCopyRightSection from "@/components/shared/pageSection/homePageSection/CopyWriteSection";
 import FaqsSection from "@/components/shared/pageSection/homePageSection/FaqsSection";
 import HeroSection from "@/components/shared/pageSection/homePageSection/HeroSection";
 import NotableProjects from "@/components/shared/pageSection/homePageSection/NotableProjects";
@@ -13,7 +12,6 @@ export default function Home() {
       <SkillsSection />
       <FaqsSection />
       <AnyThingWrongSection />
-      <FormAndCopyRightSection />
     </div>
   );
 }

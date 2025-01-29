@@ -7,6 +7,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { IconType } from "react-icons/lib";
+import { useMyContext } from "@/contexts/MyContext";
 
 interface ToolIcon {
   name: string;
@@ -30,6 +31,8 @@ export default function SkillsCard({
   textcolor,
   toolIcons,
 }: SkillsCardProps) {
+  const { theme } = useMyContext();
+
   if (bgcolor === "bg-sky-200") {
     bgcolor = "bg-sky-200";
   } else if (bgcolor === "bg-red-200") {
@@ -51,29 +54,38 @@ export default function SkillsCard({
   }
 
   return (
-    <Card className="hover:shadow-xl h-full w-full mx-auto overflow-hidden transition-shadow duration-300">
+    <Card
+      className={`hover:shadow-xl ${
+        theme === "dark" ? "bg-[#09090B]" : "bg-white border-gray-200"
+      } h-full w-full mx-auto overflow-hidden transition-shadow duration-300`}
+    >
       <CardHeader className="flex flex-col items-center text-center">
         <div
           className={`p-6 rounded-full inline-flex items-center justify-center text-4xl shadow-lg ${bgcolor} ${textcolor}`}
         >
           <Icon size={60} className="" />
         </div>
-        <CardTitle className="text-2xl mt-4 font-semibold text-primary">
+        <CardTitle
+          className={`text-2xl mt-4 font-semibold ${
+            theme === "dark" ? "text-white" : "text-[#09090B]"
+          }`}
+        >
           {title}
         </CardTitle>
       </CardHeader>
       <CardContent className="text-center space-y-4">
         {toolIcons && (
           <div className="flex flex-wrap justify-center gap-4 mb-4">
-            <TooltipProvider >
+            <TooltipProvider>
               {toolIcons.map((item, index) => (
-                <Tooltip
-                  
-                  key={index}
-                >
+                <Tooltip key={index}>
                   <TooltipTrigger>
                     <div
-                      className={`rounded-full  hover:scale-110 transition-transform duration-200 border-2 p-3 shadow-md flex items-center justify-center text-lg ${
+                      className={`rounded-full  hover:scale-110 transition-transform duration-200 ${
+                        theme === "dark"
+                          ? "border-2"
+                          : "border-2 border-gray-200"
+                      } p-3 shadow-md flex items-center justify-center text-lg ${
                         item.color === "text-sky-800"
                           ? "text-sky-800"
                           : item.color === "text-orange-700"

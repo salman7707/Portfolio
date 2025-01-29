@@ -1,6 +1,8 @@
+"use client";
 import React from "react";
 import { useFormik } from "formik";
 import { Send } from "lucide-react";
+import { useMyContext } from "@/contexts/MyContext";
 
 export default function ContactForm() {
   const initialValues = {
@@ -46,10 +48,19 @@ export default function ContactForm() {
       placeholder: "Message",
     },
   ];
+  const { theme } = useMyContext();
   return (
-    <div className="bg-[#09090B] shadow-md rounded-[8px] p-5">
+    <div
+      className={`${
+        theme === "dark" ? "bg-[#09090B] border" : "bg-white border-gray-200"
+      } rounded-[8px] p-5 border`}
+    >
       <div>
-        <h2 className="text-3xl text-gray-100 text-center pb-5">
+        <h2
+          className={`text-3xl ${
+            theme === "dark" ? "text-gray-100" : "text-gray-800"
+          }  text-center pb-5`}
+        >
           Get in touch
         </h2>
       </div>
@@ -57,7 +68,9 @@ export default function ContactForm() {
         {InputData.map((data) => (
           <div key={data.id}>
             <label
-              className={`text-gray-100 block uppercase tracking-wide text-xs font-bold mb-2`}
+              className={`${
+                theme === "dark" ? "text-gray-100" : "text-gray-700"
+              } block uppercase tracking-wide text-xs font-bold mb-2`}
             >
               {data.Label}
             </label>
@@ -66,7 +79,9 @@ export default function ContactForm() {
                 name={data.name}
                 value={values[data.name as name]}
                 onChange={handleChange}
-                className={` appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white`}
+                className={` appearance-none block w-full bg-gray-200 text-gray-700 ${
+                  theme === "dark" ? "border" : "border border-gray-200"
+                } rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white md:text-lg text-base`}
                 type={data.type}
                 placeholder={data.placeholder}
               />
@@ -74,7 +89,9 @@ export default function ContactForm() {
               <textarea
                 rows={4}
                 cols={40}
-                className={`appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white`}
+                className={`appearance-none block w-full bg-gray-200 text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white md:text-lg text-base ${
+                  theme === "dark" ? "border" : "border border-gray-200"
+                }`}
                 placeholder="Message"
                 name="message"
                 onChange={handleChange}

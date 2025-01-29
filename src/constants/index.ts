@@ -29,7 +29,7 @@ import {
 } from "react-icons/si";
 
 import { TbBrandReactNative, TbBrandVscode } from "react-icons/tb";
-import { BugIcon, CodeIcon, GitForkIcon, MailIcon, PencilIcon } from "lucide-react";
+import { BugIcon, CodeIcon, GitForkIcon, Mail, MailIcon, MapPin, PencilIcon, Phone, User } from "lucide-react";
 import { IconType } from "react-icons/lib";
 
 
@@ -69,7 +69,7 @@ export const SideBarNavLinks = [
         id: 0,
         ICON: FaRegFolder,
         title: "Projects",
-        url: "/",
+        url: "/projects",
     },
     {
         id: 1,
@@ -81,7 +81,7 @@ export const SideBarNavLinks = [
         id: 2,
         ICON: LuHistory,
         title: "My Story",
-        url: "/",
+        url: "/my-story",
     },
     {
         id: 3,
@@ -99,7 +99,7 @@ export const SideBarNavLinks = [
         id: 5,
         ICON: LuContact,
         title: "Contact Me",
-        url: "/",
+        url: "/contact",
     },
 ]
 
@@ -386,4 +386,130 @@ export const AnyThingWorngLinks = [
         text: "Fork this repository",
         icon: GitForkIcon,
     },
+];
+
+export const footerData = [
+    {
+        id: 0,
+        heading: "What's next?",
+        subHeading: "Let's connect",
+        paragraph: "If you have any opportunity, suggestion or feedback we would love to hear from you! Please feel free to reach out to us using the contact form or our email address.",
+        Icons: [
+            {
+                id: 0,
+                source: LuGithub,
+                href: "https://github.com/abass-dev"
+            },
+            {
+                id: 1,
+                source: TbBrandTwitter,
+                href: "https://twitter.com/abass_dev"
+            },
+            {
+                id: 2,
+                source: FiFacebook,
+                href: "https://m.facebook.com/abassthedev"
+            },
+            {
+                id: 3,
+                source: MdMailOutline,
+                href: "https://m.facebook.com/abassthedev"
+            },
+        ],
+        Links: [
+            {
+                id: 0,
+                href: "https://apps.abassdev.com",
+                text: "Web Apps",
+            },
+            {
+                id: 1,
+                href: "https://abassdev.com/blog",
+                text: "Blog",
+            },
+            {
+                id: 2,
+                href: "/my-story/",
+                text: "About Me",
+            },
+            {
+                id: 3,
+                href: "/contact/",
+                text: "Contact Me",
+            },
+            {
+                id: 4,
+                href: "/privacy-policy",
+                text: "Privacy Policy",
+            },
+            {
+                id: 5,
+                href: "/copyright/",
+                text: "Copyright",
+            },
+        ],
+        CopyRight: " Copyright © 2021 - 2024 Abass Dev. All rights reserved.",
+    }
+]
+
+export const AboutMeData = [
+    {
+        id: "intro",
+        content: `Abass Ben Cheik, who goes by the name Abass Dev, is a talented full-stack developer with a passion for building exceptional Web and Mobile applications. He was born in Niamey, Niger, on February 2, 1994. He is currently`,
+    },
+    {
+        id: "early-years",
+        content:
+            "At a young age of 15 in 2009, Abass Dev became fascinated with the world of web development. However, he had no idea where to start. It wasn't until he met a friend on Skyrock, a social networking site, in 2011, that he was introduced to the world of blogging and tasked with administering a Wix-created blog. It was this experience that sparked his curiosity and ignited his passion for web development.",
+    },
+    {
+        id: "growth",
+        content:
+            "In 2012, Abass Dev created his first blog on the Blogspot platform, but soon discovered its limitations. Determined to expand his knowledge and capabilities, he began to explore the depths of web development using languages such as HTML, CSS, JavaScript, PHP, SQL, and others.",
+    },
+    {
+        id: "development",
+        content:
+            "With his dedication and hard work, Abass Dev honed his skills and became a self-taught full-stack developer.",
+    },
+    {
+        id: "portfolio",
+        content:
+            "Today, he has an impressive portfolio of work that showcases his expertise in building dynamic, responsive, and visually appealing web applications.",
+    },
+    {
+        id: "skills",
+        content:
+            "In addition to his technical abilities, Abass Dev has a keen eye for design and aesthetics, which allows him to create stunning and functional user interfaces. He is always learning and staying up-to-date with the latest trends and technologies in the ever-evolving field of web development.",
+    },
+    {
+        id: "conclusion",
+        content:
+            "Abass Dev is a true testament to the power of self-education and perseverance. His passion and commitment to his craft have led him to become a respected figure in the web development community, and a source of inspiration for aspiring developers around the world.",
+    },
+];
+
+export const contactInfo = [
+    {
+        icon: User,
+        label: "Role",
+        value: "Web and mobile app developer at self-employed"
+    },
+    {
+        icon: MapPin,
+        label: "Location",
+        value: "Niamey, Niger"
+    },
+    {
+        icon: Mail,
+        label: "Email",
+        value: "abass@abassdev.com",
+        href: "mailto:abass@abassdev.com"
+    },
+    {
+        icon: Phone,
+        label: "Phone",
+        value: "+233 59 820 8469",
+        href: "tel:+233598208469"
+    }
 ];

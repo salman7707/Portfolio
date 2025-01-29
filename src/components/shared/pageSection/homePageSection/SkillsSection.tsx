@@ -3,16 +3,22 @@
 import SkillsCard from "@/components/template/cards/SkillsCard";
 import React from "react";
 import { skillCard } from "@/constants";
+import { useMyContext } from "@/contexts/MyContext";
 
 export default function SkillsSection() {
+  const { theme } = useMyContext();
   return (
     <div
       id="Skills"
-      className=" md:px-12 lg:px-20 xl:px-32 bg-[#111827]  text-black px-4 dark:text-white py-10 flex items-center flex-col justify-center "
+      className={`md:px-12 lg:px-20 xl:px-32 ${
+        theme === "dark" ? "bg-[#111827]" : "bg-white"
+      } px-4 py-10 flex items-center flex-col justify-center`}
     >
       <div className="mx-auto lg:w-full md:w-[95%] w-full max-w-[1350px]">
         <h1
-          className={`font-orbitron text-center font-bold  text-white text-5xl pb-10 my-4`}
+          className={`font-orbitron text-center font-bold ${
+            theme === "dark" ? "text-white" : "text-[#19191C]"
+          } md:text-5xl text-4xl md:pb-10 my-4`}
         >
           Skills
         </h1>

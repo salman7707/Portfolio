@@ -1,17 +1,23 @@
 "use client";
 import { SideBarNavLinks } from "@/constants";
+import { useMyContext } from "@/contexts/MyContext";
 import Link from "next/link";
 import React, { useState } from "react";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { LuSunDim } from "react-icons/lu";
 
 export default function Sidebar() {
+  const { theme, setTheme } = useMyContext();
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [Hover, setHover] = useState<{
     id: null | number;
     open: boolean;
     value: string;
   }>({ id: null, open: false, value: "" });
+  const handleClick = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
   return (
     <div
       className={`bg-transparent fixed top-0 left-0 px-4 py-2 ${
@@ -23,12 +29,20 @@ export default function Sidebar() {
           {!sidebarOpen ? <div className="text-3xl text-white">Logo</div> : ""}
           <div
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className={`hover:bg-[#27272A] md:bg-transparent bg-[#27272A] px-2 py-2 mt-2 rounded-[8px]`}
+            className={` ${
+              theme === "dark"
+                ? "hover:bg-[#27272A] bg-[#27272A]"
+                : "hover:bg-[#F4F4F5] bg-transparent"
+            } md:bg-transparent  px-2 py-2 mt-2 rounded-[8px]`}
           >
-            <GiHamburgerMenu className="text-[#B4B4B5] text-base" />
+            <GiHamburgerMenu
+              className={`${
+                theme === "dark" ? "text-[#B4B4B5]" : "text-gray-800"
+              }  text-base`}
+            />
           </div>
         </div>
-        <div className=" flex flex-col items-center justify-between w-full gap-2 ">
+        <div className=" flex flex-col items-center justify-between w-full gap-2 drop-shadow-2xl">
           {SideBarNavLinks.map((data) => (
             <Link
               onMouseEnter={() =>
@@ -43,7 +57,7 @@ export default function Sidebar() {
                 data.id === 3 && "mt-5"
               } justify-center w-full rounded-[5px] hover:bg-[#1F2937] ${
                 sidebarOpen ? "ml-[25px] pl-2 pr-7 hidden md:flex " : "px-2"
-              } py-2 text-white`}
+              } py-2 ${theme === "dark" ? "text-white" : "text-black hover:text-white"} `}
             >
               <div className={`${!sidebarOpen ? "w-[14%]" : "w-full"}`}>
                 <data.ICON className="text-xl m-0 mb-[2px]" />
@@ -56,7 +70,7 @@ export default function Sidebar() {
                 {data.title}
               </div>
               {sidebarOpen && Hover.open && Hover.id === data.id && (
-                <div className="absolute left-16 bg-white px-2 py-2 w-28 rounded-md text-gray-700 flex items-center justify-center text-xs font-semibold">
+                <div className="absolute left-16 bg-white px-2 py-2 w-28 rounded-[6px] text-gray-700 flex items-center justify-center text-xs font-semibold">
                   <h2>{Hover.value}</h2>
                 </div>
               )}
@@ -68,8 +82,19 @@ export default function Sidebar() {
             sidebarOpen ? "md:flex hidden" : "flex"
           } items-center justify-start w-full`}
         >
-          <div className=" hover:bg-[#27272A] text-white  bg-transparent px-2 py-2 rounded-[6px]">
-            <BsFillMoonStarsFill />
+          <div
+            onClick={() => handleClick()}
+            className={`${
+              theme === "dark" ? "hover:bg-[#27272A]" : "hover:bg-[#F4F4F5]"
+            }  ${
+              theme === "dark" ? "text-white" : "text-black"
+            }  bg-transparent px-2 py-2 rounded-[6px]`}
+          >
+            {theme === "dark" ? (
+              <BsFillMoonStarsFill />
+            ) : (
+              <LuSunDim className="text-xl" />
+            )}
           </div>
         </div>
       </div>

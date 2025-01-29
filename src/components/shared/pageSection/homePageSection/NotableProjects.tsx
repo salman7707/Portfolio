@@ -4,15 +4,27 @@ import ProjectCard from "@/components/template/cards/ProjectCard";
 import React from "react";
 import dynamic from "next/dynamic";
 import { NotableProjectsData } from "@/constants";
+import { useMyContext } from "@/contexts/MyContext";
 
 const DynamicIconCloud = dynamic(() => import("@/components/ui/icon-cloud"), {
   ssr: false,
 });
-export default function NotableProjects() {
+
+interface NotableProjectsSectionTypes {
+  projectsPage?: boolean;
+}
+export default function NotableProjects({
+  projectsPage = false,
+}: NotableProjectsSectionTypes) {
+  const { theme } = useMyContext();
   return (
-    <div className="w-full bg-[#111827] h-full py-10 px-2.5">
+    <div className={`w-full ${theme === "dark"?"bg-[#111827]":"bg-white"}  h-full py-10 px-2.5`}>
       <div className="">
-        <h2 className="text-5xl font-semibold text-center text-white">
+        <h2
+          className={`md:text-5xl text-4xl font-semibold text-center ${
+            theme === "dark" ? "text-white" : "text-[#172554]"
+          }`}
+        >
           Notable Projects
         </h2>
       </div>
@@ -37,10 +49,13 @@ export default function NotableProjects() {
           </div>
         </div>
       ))}
-
-      <div className="flex pt-10 justify-start max-w-[1100px] lg:px-0 md:px-0 px-1.5 2xl:w-[75%] xl:w-[82%] md:w-[86%] w-[100%] mx-auto">
-        <SeeMoreButton text="See more projects..." goTo="/projects" />
-      </div>
+      {!projectsPage && (
+        <div
+          className={`flex pt-10 justify-start max-w-[1100px] lg:px-0 md:px-0 px-1.5 2xl:w-[75%] xl:w-[82%] md:w-[86%] w-[100%] mx-auto`}
+        >
+          <SeeMoreButton text="See more projects..." goTo="/projects" />
+        </div>
+      )}
     </div>
   );
 }
