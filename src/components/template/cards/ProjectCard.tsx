@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
 import IMAGES from "../../../../public/images";
 import { MdLockOutline } from "react-icons/md";
 import { IoOpenOutline } from "react-icons/io5";
@@ -9,8 +9,10 @@ import { useRouter } from "next/navigation";
 import { LuGithub } from "react-icons/lu";
 import Link from "next/link";
 import { useMyContext } from "@/contexts/MyContext";
+import { motion, useInView } from "framer-motion";
 
 interface projectCard {
+  id?: number | undefined;
   img?: string;
   heading?: string;
   privatesource?: boolean;
@@ -24,6 +26,7 @@ interface projectCard {
 }
 
 export default function ProjectCard({
+  id = 0,
   img,
   heading,
   privatesource = false,
@@ -32,10 +35,20 @@ export default function ProjectCard({
   websiteLink,
   technologies,
 }: projectCard) {
+  const ref = useRef(null);
+  const InView = useInView(ref);
   const router = useRouter();
   const { theme } = useMyContext();
   return (
-    <div
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, x: id % 2 === 0 ? -150 : 150 }}
+      animate={
+        InView
+          ? { opacity: 1, x: 0 }
+          : { opacity: 0, x: id % 2 === 0 ? -150 : 150 }
+      }
+      transition={{ delay: 0.3, }}
       className={` ${
         theme === "dark" ? "bg-[#09090b]" : "bg-white border border-gray-200"
       } group w-full overflow-hidden rounded-xl h-auto flex flex-col items-center justify-between hover:shadow-current transition-all duration-300 ease-linear`}
@@ -122,6 +135,6 @@ export default function ProjectCard({
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

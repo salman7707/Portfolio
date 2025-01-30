@@ -1,12 +1,15 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
 import IMAGES from "../../../../../public/images";
 import { AboutMeData } from "@/constants";
 import { useMyContext } from "@/contexts/MyContext";
+import { motion, useInView } from "framer-motion";
 
 const AboutMeSection = () => {
   const { theme } = useMyContext();
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true });
   return (
     <div
       className={`min-h-screen ${
@@ -17,14 +20,17 @@ const AboutMeSection = () => {
     >
       <div className="max-w-[1350px] mx-auto px-4 md:px-6 lg:px-8 pt-20 pb-10">
         <div className="max-w-4xl mx-auto mb-12">
-          <h1
+          <motion.h1
+            initial={{ opacity: 0, y: -250 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
             className={`text-4xl md:text-5xl font-bold font-orbitron text-center light:text-blue-950 ${
               theme === "dark" ? "text-white" : "text-gray-800"
             } mb-8`}
             id="about-title"
           >
             About Me
-          </h1>
+          </motion.h1>
 
           <div className="relative lg:w-full mx-auto md:w-[90%] overflow-hidden rounded-[8px] shadow-lg">
             <div className="absolute inset-0 bg-gradient-to-r from-orange-400 via-red-500 to-pink-500" />
@@ -39,7 +45,11 @@ const AboutMeSection = () => {
         </div>
 
         <main className="max-w-4xl mx-auto lg:w-full md:w-[90%] w-full">
-          <section
+          <motion.section
+            ref={ref}
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ delay: 0.5 }}
             className={` ${
               theme === "dark"
                 ? "bg-gray-800"
@@ -68,7 +78,7 @@ const AboutMeSection = () => {
                 </p>
               ))}
             </div>
-          </section>
+          </motion.section>
         </main>
       </div>
     </div>

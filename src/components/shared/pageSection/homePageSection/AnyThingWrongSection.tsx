@@ -7,6 +7,8 @@ import { AnyThingWorngLinks } from "@/constants";
 import { IconType } from "react-icons/lib";
 import { usePathname } from "next/navigation";
 import { useMyContext } from "@/contexts/MyContext";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 interface LinkItemProps {
   href: string;
@@ -26,8 +28,8 @@ const LinkItem = ({ href, text, icon: Icon }: LinkItemProps) => {
         } transition-colors`}
       >
         <Link href={href} className="flex items-center gap-2">
-          <Icon className="w-4 h-4" />
-          <span>{text}</span>
+          <Icon className="1xl:w-7 1xl:h-7 w-4 h-4" />
+          <span className="1xl:text-base text-sm">{text}</span>
         </Link>
       </Button>
     </li>
@@ -42,15 +44,21 @@ export default function AnyThingWrongSection({
 }: AnyThingWrongSectionTypes) {
   const { theme } = useMyContext();
   const pathname = usePathname();
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true });
   return (
-    <div
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0 }}
+      animate={inView ? { opacity: 1 } : { opacity: 0 }}
+      transition={{ delay: 0.5 }}
       className={`${
         theme === "dark"
           ? bgColor === "story"
             ? "bg-gray-800"
             : " bg-[#09090B]"
           : "bg-white"
-      }  max-w-[1350px] mx-auto px-4 md:px-16 lg:px-20 pb-20 xl:px-[122px] ${
+      }   px-4 md:px-16 lg:px-20 pb-20 xl:px-[122px] ${
         pathname === "/projects" && "py-14"
       }`}
     >
@@ -58,8 +66,8 @@ export default function AnyThingWrongSection({
         className={`${
           theme === "dark"
             ? "bg-background text-white "
-            : "bg-white text-[#09090B] border-gray-200"
-        }`}
+            : "bg-white text-[#09090B] border-gray-200 "
+        } max-w-[1350px] mx-auto`}
       >
         <CardHeader>
           <CardTitle
@@ -83,6 +91,6 @@ export default function AnyThingWrongSection({
           </ul>
         </CardContent>
       </Card>
-    </div>
+    </motion.div>
   );
 }

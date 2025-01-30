@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -10,10 +10,12 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { faqData } from "@/constants";
 import { useMyContext } from "@/contexts/MyContext";
+import { motion, useInView } from "framer-motion";
 
 export default function FaqsSection() {
   const { theme } = useMyContext();
-
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true });
   const [openItems, setOpenItems] = useState<string[]>([]);
 
   const toggleItem = (value: string) => {
@@ -25,15 +27,19 @@ export default function FaqsSection() {
   };
 
   return (
-    <div
-      className={` max-w-[1350px] mx-auto px-4 md:px-16 py-20 lg:px-20 xl:px-[122px] ${
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0 }}
+      animate={inView ? { opacity: 1 } : { opacity: 0 }}
+      transition={{ delay: 0.5 }}
+      className={`  px-4 md:px-16 py-20 lg:px-20 xl:px-[122px] ${
         theme === "dark" ? "bg-[#09090B]" : "bg-white"
       } `}
     >
       <Card
         className={`${
           theme === "dark" ? "bg-[#09090B]" : "bg-white border-gray-200"
-        }`}
+        } max-w-[1350px] mx-auto`}
       >
         <CardHeader>
           <CardTitle
@@ -54,9 +60,7 @@ export default function FaqsSection() {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className={`${
-                  theme === "dark" ? "" : "border-b-gray-200"
-                }`}
+                className={`${theme === "dark" ? "" : "border-b-gray-200"}`}
               >
                 <AccordionTrigger
                   className={`${
@@ -78,6 +82,6 @@ export default function FaqsSection() {
           </Accordion>
         </CardContent>
       </Card>
-    </div>
+    </motion.div>
   );
 }

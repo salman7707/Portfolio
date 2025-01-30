@@ -81,6 +81,14 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out'
 			}
 		},
+		screens: {
+			'sm': '640px',
+			'md': '768px',
+			'lg': '1024px',
+			'xl': '1280px',
+			'1xl': '1440px',
+			'2xl': '1536px',
+		},
 		boxShadow: {
 			'custom-shadow': 'rgb(255, 255, 255) 0px 0px 20px 10px',
 			'custom-shadow2': 'black 0px 0px 40px -20px'

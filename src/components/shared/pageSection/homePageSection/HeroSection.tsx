@@ -12,7 +12,7 @@ export default function HeroSection() {
   const { theme } = useMyContext();
   return (
     <div
-      className={`xl:h-full relative max-w-[1350px] mx-auto ${
+      className={`xl:h-full relative  ${
         theme === "dark" ? "bg-[#09090B]" : "bg-white"
       }  flex lg:items-center md:items-start justify-center py-11 overflow-x-hidden`}
     >
@@ -63,7 +63,12 @@ export default function HeroSection() {
                 className="lg:w-[40%] md:w-[45%] w-full h-full flex flex-col md:items-start items-center justify-center  py-10 md:justify-start gap-8 lg:px-10 px-4"
               >
                 {/* Avatar */}
-                <div className="relative w-[260px] h-[260px] group">
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.3 }}
+                  className="relative w-[260px] h-[260px] group"
+                >
                   <div
                     className={`absolute w-[250px] h-[250px] blur-sm inset-0 ${
                       theme === "dark"
@@ -88,9 +93,14 @@ export default function HeroSection() {
                       className=" hover:scale-105 transition-all hover:rounded-full  duration-150 ease-linear bg-transparent"
                     />
                   </div>
-                </div>
+                </motion.div>
                 {/* Icons Section */}
-                <div className="flex flex-wrap items-center md:justify-start justify-center lg:gap-4 gap-2 w-full">
+                <motion.div
+                  initial={{ y: 100, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.5 }}
+                  className="flex flex-wrap items-center md:justify-start justify-center lg:gap-4 gap-2 w-full"
+                >
                   {firstdata.links.map((linksdata) => (
                     <Link
                       href={"/"}
@@ -110,7 +120,7 @@ export default function HeroSection() {
                       />
                     </Link>
                   ))}
-                </div>
+                </motion.div>
               </div>
             ))}
 
@@ -120,7 +130,11 @@ export default function HeroSection() {
                 key={seconddata.id}
                 className="lg:w-[60%] md:w-[55%] h-full md:py-10 flex flex-col md:items-start md:justify-start items-center justify-center gap-4 lg:pl-4 lg:pr-6 pb-4"
               >
-                <div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5, type: "spring", stiffness: 70 }}
+                >
                   <h2 className="md:text-3xl text-2xl text-center">
                     <span
                       className={`bg-gradient-to-r ${
@@ -132,8 +146,12 @@ export default function HeroSection() {
                       {seconddata.smallHeading}
                     </span>
                   </h2>
-                </div>
-                <div>
+                </motion.div>
+                <motion.div
+                  initial={{ x: 300, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.5, type: "spring", stiffness: 70 }}
+                >
                   <h2 className="lg:text-8xl md:text-6xl text-5xl">
                     <span
                       className={`${
@@ -145,21 +163,40 @@ export default function HeroSection() {
                       {seconddata.heading}
                     </span>
                   </h2>
-                </div>
-                <div className="">
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5 }}
+                  className=""
+                >
                   <p className="text-[#95959E] md:text-xl text-lg pt-4 md:text-left text-center md:px-0 px-4">
                     {seconddata.paragraph}
                   </p>
-                </div>
-                <div className="text-[#95959E] flex items-center justify-center gap-3 pb-11">
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5 }}
+                  className="text-[#95959E] flex items-center justify-center gap-3 pb-11"
+                >
                   <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse m-auto"></span>
                   {seconddata.points}
-                </div>
+                </motion.div>
                 <div className="w-full h-full flex lg:flex-row flex-col items-center justify-center gap-6">
-                  <div className="buttongradient lg:w-[40%] md:w-[60%] w-[75%] h-auto rounded-[25px]">
+                  <motion.div
+                    initial={{ x: -130, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.5, type: "spring", stiffness: 50 }}
+                    className="buttongradient lg:w-[40%] md:w-[60%] w-[75%] h-auto rounded-[25px]"
+                  >
                     <Button>Download Resume</Button>
-                  </div>
-                  <div>
+                  </motion.div>
+                  <motion.div
+                    initial={{ x: 130, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.5, type: "spring", stiffness: 50 }}
+                  >
                     <button
                       className={`border-[#27272A] ${
                         theme === "dark"
@@ -170,7 +207,7 @@ export default function HeroSection() {
                       More About Me
                       <LuArrowRight className="text-lg group-hover:translate-x-1 font-light transition-all duration-150 ease-linear" />
                     </button>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             ))}

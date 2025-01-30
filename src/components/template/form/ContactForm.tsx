@@ -53,11 +53,11 @@ export default function ContactForm() {
     <div
       className={`${
         theme === "dark" ? "bg-[#09090B] border" : "bg-white border-gray-200"
-      } rounded-[8px] p-5 border`}
+      } rounded-[8px] 1xl:p-7 p-5 border`}
     >
       <div>
         <h2
-          className={`text-3xl ${
+          className={`text-4xl 2xl:text-5xl ${
             theme === "dark" ? "text-gray-100" : "text-gray-800"
           }  text-center pb-5`}
         >
@@ -70,7 +70,7 @@ export default function ContactForm() {
             <label
               className={`${
                 theme === "dark" ? "text-gray-100" : "text-gray-700"
-              } block uppercase tracking-wide text-xs font-bold mb-2`}
+              } block uppercase tracking-wide 2xl:text-base text-xs font-bold mb-2`}
             >
               {data.Label}
             </label>

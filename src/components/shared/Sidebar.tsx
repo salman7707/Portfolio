@@ -22,18 +22,19 @@ export default function Sidebar() {
     <div
       className={`bg-transparent fixed top-0 left-0 px-4 py-2 ${
         sidebarOpen ? "w-10" : "w-[285px] bg-blur"
-      }  h-screen z-50 `}
+      }  h-screen z-40 `}
     >
       <div className="flex flex-col gap-y-6 items-center justify-between w-full ">
         <div className="flex items-center justify-between w-full">
           {!sidebarOpen ? (
-            <div
+            <Link
+              href={"/"}
               className={`text-3xl ${
                 theme === "dark" ? "text-white" : "text-gray-800"
               }`}
             >
               Logo
-            </div>
+            </Link>
           ) : (
             ""
           )}

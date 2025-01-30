@@ -96,3 +96,14 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.cursor {
+  border-radius: 25px;
+  height: 26px;
+  width: 26px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
