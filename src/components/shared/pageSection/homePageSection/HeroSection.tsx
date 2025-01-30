@@ -99,14 +99,14 @@ export default function HeroSection() {
                         theme === "dark"
                           ? "bg-[#0C0C0F]"
                           : "bg-white drop-shadow-sm hover:bg-[#0C0C0F]"
-                      } md:w-12 md:h-12 w-10 h-10 rounded-full flex items-center justify-center group transition-all duration-200 ease-linear`}
+                      } md:w-12 md:h-12 w-10 h-10 rounded-full flex items-center justify-center group transition-all duration-100 ease-linear`}
                     >
                       <linksdata.ICON
                         className={`${
                           theme === "dark"
                             ? "text-white"
                             : "text-black group-hover:text-white"
-                        } md:text-2xl text-lg group-hover:scale-110 transition-all duration-200 ease-linear`}
+                        } md:text-2xl text-lg group-hover:scale-110 transition-all duration-100 ease-linear`}
                       />
                     </Link>
                   ))}

@@ -26,7 +26,17 @@ export default function Sidebar() {
     >
       <div className="flex flex-col gap-y-6 items-center justify-between w-full ">
         <div className="flex items-center justify-between w-full">
-          {!sidebarOpen ? <div className="text-3xl text-white">Logo</div> : ""}
+          {!sidebarOpen ? (
+            <div
+              className={`text-3xl ${
+                theme === "dark" ? "text-white" : "text-gray-800"
+              }`}
+            >
+              Logo
+            </div>
+          ) : (
+            ""
+          )}
           <div
             onClick={() => setSidebarOpen(!sidebarOpen)}
             className={` ${
@@ -57,7 +67,9 @@ export default function Sidebar() {
                 data.id === 3 && "mt-5"
               } justify-center w-full rounded-[5px] hover:bg-[#1F2937] ${
                 sidebarOpen ? "ml-[25px] pl-2 pr-7 hidden md:flex " : "px-2"
-              } py-2 ${theme === "dark" ? "text-white" : "text-black hover:text-white"} `}
+              } py-2 ${
+                theme === "dark" ? "text-white" : "text-black hover:text-white"
+              } `}
             >
               <div className={`${!sidebarOpen ? "w-[14%]" : "w-full"}`}>
                 <data.ICON className="text-xl m-0 mb-[2px]" />
