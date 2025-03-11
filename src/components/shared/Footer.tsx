@@ -44,7 +44,7 @@ const Footer = () => {
       {footerData.map((data) => (
         <div
           key={data.id}
-          className={`max-w-[1350px] mx-auto grid grid-cols-4 gap-10 px-4 lg:px-20 md:px-14 xl:px-[122px] 1xl:px-[75px] 2xl:px-0 ${
+          className={`max-w-[1350px] mx-auto grid grid-cols-4 gap-10 px-4 lg:px-20 md:px-14 xl:px-[122px] 1xl:px-[75px] 2xl:px-0 items-center justify-center ${
             pathname === "/contact" && "py-4"
           }`}
         >

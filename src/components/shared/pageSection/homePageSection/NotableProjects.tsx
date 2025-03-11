@@ -46,20 +46,34 @@ export default function NotableProjects({
           <div className="m-auto flex items-center justify-center py-4">
             <DynamicIconCloud slugs={data.icons} />
           </div>
-          <div className="grid md:grid-cols-2 grid-cols-1 lg:gap-10 gap-5 xs:gap-10 justify-between mx-auto pt-8 pb-2 lg:px-0 md:px-0 px-1.5 xl:w-[82%] md:w-[86%] w-[100%] ">
-            {data.projectCard.map((projectData) => (
-              <div key={projectData.id}>
-                <ProjectCard
-                  id={projectData.id}
-                  heading={projectData.heading}
-                  img={projectData.img}
-                  paragraph={projectData.paragraph}
-                  privatesource
-                  websiteLink={projectData.websiteLink}
-                  technologies={projectData.technologies}
-                />
-              </div>
-            ))}
+          <div className="grid md:grid-cols-2 grid-cols-1 lg:gap-10 gap-5 xs:gap-10 justify-between mx-auto pt-8 pb-2 lg:px-0 md:px-0 px-1.5 xl:w-[82%] md:w-[86%] w-[100%] h-full">
+            {projectsPage
+              ? data.ProjectCard.map((projectData: any) => (
+                  <div key={projectData.id}>
+                    <ProjectCard
+                      id={projectData.id}
+                      heading={projectData.heading}
+                      img={projectData.img}
+                      paragraph={projectData.paragraph}
+                      privatesource
+                      websiteLink={projectData.websiteLink}
+                      technologies={projectData.technologies}
+                    />
+                  </div>
+                ))
+              : data.homeProjectCard.map((homeData: any) => (
+                  <div key={homeData.id}>
+                    <ProjectCard
+                      id={homeData.id}
+                      heading={homeData.heading}
+                      img={homeData.img}
+                      paragraph={homeData.paragraph}
+                      privatesource
+                      websiteLink={homeData.websiteLink}
+                      technologies={homeData.technologies}
+                    />
+                  </div>
+                ))}
           </div>
         </div>
       ))}

@@ -25,7 +25,9 @@ export default function Cursor() {
         style={{
           translate: `${position.x - 8}px ${position.y - 4}px`,
         }}
-        className={`lg:block hidden cursor ${theme === "dark" ? "bg-white" : "bg-black"} `}
+        className={`lg:block hidden cursor ${
+          theme === "dark" ? "bg-white" : "bg-black"
+        } `}
       ></div>
     </>
   );

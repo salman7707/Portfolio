@@ -47,7 +47,7 @@ export default function ContactSection() {
                   theme === "dark" ? "text-white" : "text-[#09090B]"
                 } `}
               >
-                Abass Dev
+                Salman Dev
               </CardTitle>
             </CardHeader>
             <CardContent>

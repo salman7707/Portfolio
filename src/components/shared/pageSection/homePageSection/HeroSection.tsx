@@ -84,13 +84,13 @@ export default function HeroSection() {
                     }  transition w-[260px] h-[260px] duration-500 rounded-full group-hover:brightness-[1.75] flex items-center justify-center z-10
                   `}
                   ></div>
-                  <div className="relative w-full h-full rounded-full flex items-center justify-center z-20">
+                  <div className="relative w-[250px] h-[250px] rounded-full flex items-center justify-center z-20">
                     <Image
                       src={firstdata.Avatar}
                       width={260}
                       height={260}
                       alt="Profile"
-                      className=" hover:scale-105 transition-all hover:rounded-full  duration-150 ease-linear bg-transparent"
+                      className="rounded-full object-cover hover:scale-105 transition-all hover:rounded-full duration-150 ease-linear bg-transparent"
                     />
                   </div>
                 </motion.div>
@@ -99,11 +99,11 @@ export default function HeroSection() {
                   initial={{ y: 100, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.5 }}
-                  className="flex flex-wrap items-center md:justify-start justify-center lg:gap-4 gap-2 w-full"
+                  className="flex flex-wrap items-center md:justify-center justify-center lg:gap-4 gap-2 w-[260px]"
                 >
                   {firstdata.links.map((linksdata) => (
                     <Link
-                      href={"/"}
+                      href={linksdata.link || "/"}
                       key={linksdata.id}
                       className={` ${
                         theme === "dark"
@@ -190,7 +190,9 @@ export default function HeroSection() {
                     transition={{ delay: 0.5, type: "spring", stiffness: 50 }}
                     className="buttongradient lg:w-[40%] md:w-[60%] w-[75%] h-auto rounded-[25px]"
                   >
-                    <Button>Download Resume</Button>
+                    <Link href={seconddata.downloadbuttonhref || ""}>
+                      <Button>Download Resume</Button>
+                    </Link>
                   </motion.div>
                   <motion.div
                     initial={{ x: 130, opacity: 0 }}

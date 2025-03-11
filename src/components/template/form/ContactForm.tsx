@@ -64,7 +64,7 @@ export default function ContactForm() {
           Get in touch
         </h2>
       </div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} action={"https://formsubmit.co/salmanaliofficial7@gmail.com"} method="POST">
         {InputData.map((data) => (
           <div key={data.id}>
             <label

@@ -48,17 +48,17 @@ export default function ProjectCard({
           ? { opacity: 1, x: 0 }
           : { opacity: 0, x: id % 2 === 0 ? -150 : 150 }
       }
-      transition={{ delay: 0.3, }}
+      transition={{ delay: 0.3 }}
       className={` ${
         theme === "dark" ? "bg-[#09090b]" : "bg-white border border-gray-200"
-      } group w-full overflow-hidden rounded-xl h-auto flex flex-col items-center justify-between hover:shadow-current transition-all duration-300 ease-linear`}
+      } group w-full overflow-hidden rounded-xl flex flex-col items-center justify-between hover:shadow-current transition-all duration-300 ease-linear h-full`}
     >
       <div className={`w-full h-auto`}>
         <Image
           src={img || IMAGES.SAMPLE}
           width={1200}
           height={1200}
-          className="w-full md:h-[240px] h-[250px] rounded-t-xl hover:scale-105 transition-all duration-300 ease-linear"
+          className="w-full md:h-[240px] h-[200px] rounded-t-xl hover:scale-105 transition-all duration-300 ease-linear"
           alt="Project"
         />
       </div>
@@ -76,7 +76,6 @@ export default function ProjectCard({
           <div>
             {privatesource ? (
               <Button
-                onClick={() => router.push("https://github.com/salman7707")}
                 variant={"cardButton"}
                 size={"cardbtn"}
                 className={`rounded-[8px] ${
