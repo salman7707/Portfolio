@@ -48,7 +48,7 @@ export default function NotableProjects({
           </div>
           <div className="grid md:grid-cols-2 grid-cols-1 lg:gap-10 gap-5 xs:gap-10 justify-between mx-auto pt-8 pb-2 lg:px-0 md:px-0 px-1.5 xl:w-[82%] md:w-[86%] w-[100%] h-full">
             {projectsPage
-              ? data.ProjectCard.map((projectData: any) => (
+              ? data.ProjectCard.map((projectData) => (
                   <div key={projectData.id}>
                     <ProjectCard
                       id={projectData.id}
@@ -61,7 +61,7 @@ export default function NotableProjects({
                     />
                   </div>
                 ))
-              : data.homeProjectCard.map((homeData: any) => (
+              : data.homeProjectCard.map((homeData) => (
                   <div key={homeData.id}>
                     <ProjectCard
                       id={homeData.id}
