@@ -3,6 +3,7 @@ const IMAGES = {
     SAMPLE: "/images/sideImages/ong-site.webp",
     EDUWIZ_PROJECT: "/images/sideImages/eduwiz.png",
     AITRAVELAGENT_PROJECT: "/images/sideImages/aitravelagent.png",
+    JOBPORTAL_PROJECT: "/images/sideImages/jobportal.png",
     ABOUT: "/images/sideImages/about.webp",
     TRYBOOSTING_PROJECT: "/images/sideImages/tryboosting.png",
     PNGTOTEXT_PROJECT: "/images/sideImages/pngtotext.png",

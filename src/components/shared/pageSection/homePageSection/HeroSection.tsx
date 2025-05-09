@@ -199,16 +199,18 @@ export default function HeroSection() {
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.5, type: "spring", stiffness: 50 }}
                   >
-                    <button
-                      className={`border-[#27272A] ${
-                        theme === "dark"
-                          ? "bg-[#09090B] text-white"
-                          : "bg-white text-black font-medium text-sm border-gray-200"
-                      } border rounded-[8px] px-4 py-1  flex items-center justify-center gap-2 group text-base `}
-                    >
-                      More About Me
-                      <LuArrowRight className="text-lg group-hover:translate-x-1 font-light transition-all duration-150 ease-linear" />
-                    </button>
+                    <Link href={"/contact"}>
+                      <button
+                        className={`border-[#27272A] ${
+                          theme === "dark"
+                            ? "bg-[#09090B] text-white"
+                            : "bg-white text-black font-medium text-sm border-gray-200"
+                        } border rounded-[8px] px-4 py-1  flex items-center justify-center gap-2 group text-base `}
+                      >
+                        More About Me
+                        <LuArrowRight className="text-lg group-hover:translate-x-1 font-light transition-all duration-150 ease-linear" />
+                      </button>
+                    </Link>
                   </motion.div>
                 </div>
               </div>

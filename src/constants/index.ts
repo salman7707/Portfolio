@@ -206,6 +206,36 @@ export const NotableProjectsData = [
         ProjectCard: [
             {
                 id: 0,
+                img: IMAGES.JOBPORTAL_PROJECT,
+                heading: "JobPortal App",
+                privatesource: true,
+                paragraph: "A simple and user-friendly job portal application designed to connect job seekers and recruiters. Built to streamline the hiring process, allowing users to post jobs, apply, and manage applications efficiently.",
+                websiteLink: "https://job-portal-frontend-gamma-eight.vercel.app/",
+                technologies: [
+                    {
+                        id: 1,
+                        name: "next.js"
+                    },
+                    {
+                        id: 2,
+                        name: "node"
+                    },
+                    {
+                        id: 3,
+                        name: "express"
+                    },
+                    {
+                        id: 4,
+                        name: "tailwindcss"
+                    },
+                    {
+                        id: 5,
+                        name: "javascript"
+                    },
+                ]
+            },
+            {
+                id: 1,
                 img: IMAGES.EDUWIZ_PROJECT,
                 heading: "EduWiz",
                 privatesource: true,
@@ -239,7 +269,7 @@ export const NotableProjectsData = [
                 ]
             },
             {
-                id: 1,
+                id: 2,
                 img: IMAGES.AITRAVELAGENT_PROJECT,
                 heading: "AI Travel Agent",
                 privatesource: true,
@@ -269,7 +299,7 @@ export const NotableProjectsData = [
                 ]
             },
             {
-                id: 2,
+                id: 3,
                 img: IMAGES.TRYBOOSTING_PROJECT,
                 heading: "TRYBOOSTING",
                 privatesource: true,
@@ -303,7 +333,7 @@ export const NotableProjectsData = [
                 ]
             },
             {
-                id: 3,
+                id: 4,
                 img: IMAGES.PNGTOTEXT_PROJECT,
                 heading: "PNGTOTEXT",
                 privatesource: true,
@@ -329,7 +359,7 @@ export const NotableProjectsData = [
                 ]
             },
             {
-                id: 4,
+                id: 5,
                 img: IMAGES.REALTOR_PROJECT,
                 heading: "Realtor",
                 privatesource: true,
@@ -354,6 +384,7 @@ export const NotableProjectsData = [
                     },
                 ]
             },
+
         ],
     }
 ]
