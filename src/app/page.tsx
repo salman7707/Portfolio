@@ -7,7 +7,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Salman Dev | MERN Stack developer",
-  description: "",
+  description: "Hi, I’m Salman Dev — a MERN Stack Developer passionate about crafting modern web applications that combine powerful backends with intuitive, responsive frontends.",
 };
 
 export default function Home() {
