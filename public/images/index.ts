@@ -1,5 +1,5 @@
 const IMAGES = {
-    PROFILE: "/images/sideImages/Profile picture.png",
+    PROFILE: "/images/sideImages/profile-picture.jpg",
     SAMPLE: "/images/sideImages/ong-site.webp",
     EDUWIZ_PROJECT: "/images/sideImages/eduwiz.png",
     AITRAVELAGENT_PROJECT: "/images/sideImages/aitravelagent.png",

@@ -513,7 +513,7 @@ export const footerData = [
                 text: "Contact Me",
             },
         ],
-        CopyRight: " Copyright © 2025 Salman Dev. All rights reserved.",
+        CopyRight: " Copyright © 2026 Salman Dev. All rights reserved.",
     }
 ]
 
