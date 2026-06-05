@@ -1,10 +1,9 @@
 const IMAGES = {
-    PROFILE: "/images/sideImages/profile-picture.jpg",
+    PROFILE: "/images/sideImages/profile-picture.png",
     SAMPLE: "/images/sideImages/ong-site.webp",
     EDUWIZ_PROJECT: "/images/sideImages/eduwiz.png",
     AITRAVELAGENT_PROJECT: "/images/sideImages/aitravelagent.png",
     JOBPORTAL_PROJECT: "/images/sideImages/jobportal.png",
-    ABOUT: "/images/sideImages/about.webp",
     TRYBOOSTING_PROJECT: "/images/sideImages/tryboosting.png",
     PNGTOTEXT_PROJECT: "/images/sideImages/pngtotext.png",
     REALTOR_PROJECT: "/images/sideImages/realtor.png",
